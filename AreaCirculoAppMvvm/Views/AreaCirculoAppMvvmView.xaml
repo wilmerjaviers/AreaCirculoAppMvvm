@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AreaCirculoAppMvvm.Views.AreaCirculoAppMvvmView"
+             xmlns:viewModel="clr-namespace:AreaCirculoAppMvvm.ViewModels"
+             x:DataType="viewModel:AreaCirculoViewModel">
+
+    <ContentPage.BindingContext>
+        <viewModel:AreaCirculoViewModel/>
+    </ContentPage.BindingContext>
+
+    <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto" 
+           Padding="20" 
+           RowSpacing="10">
+        <Label Text="Cálculo de Área de Círculo" 
+               Grid.Row="0"
+               FontSize="Large" 
+               HorizontalOptions="Center"/>
+
+        <Entry Grid.Row="1" 
+               Placeholder="Ingrese el radio"
+               Keyboard="Numeric"
+               Text="{Binding RadioTexto}"/>
+
+        <Button Grid.Row="2" 
+                Text="Calcular Área" 
+                Command="{Binding CalcularCommand}" Background="Green"/>
+
+        <Entry Grid.Row="3" 
+               Text="{Binding ResultadoTexto}" 
+               IsReadOnly="True" 
+               Placeholder="Resultado"/>
+
+        <Button Grid.Row="4" 
+                Text="Limpiar" 
+                Command="{Binding LimpiarCommand}"/>
+    </Grid>
+</ContentPage>
